@@ -6,50 +6,47 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-
+    @State private var htmlRecords: [HTMLRecord] = []
+    @State private var errorMessage: String?
+    
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
+        NavigationView {
+            VStack {
+                if let error = errorMessage {
+                    Text(error)
+                        .foregroundColor(.red)
+                        .padding()
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                
+                List(htmlRecords) { record in
+                    NavigationLink(destination: WebViewScreen(htmlContent: record.content)) {
+                        Text(record.title)
                     }
                 }
             }
-        } detail: {
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+            .navigationTitle("HTML Pages")
+            .onAppear {
+                // Load HTML files
+                htmlRecords = HTMLRecord.loadHTMLFiles()
+                
+                if htmlRecords.isEmpty {
+                    errorMessage = "No HTML files found in bundle"
+                    
+                    // Print debug information
+                    print("Debug Info:")
+                    print("Bundle URL: \(Bundle.main.bundleURL)")
+                    if let resources = Bundle.main.urls(forResourcesWithExtension: nil, subdirectory: nil) {
+                        print("All Resources:")
+                        resources.forEach { print("  - \($0.lastPathComponent)") }
+                    } else {
+                        print("No resources found in bundle")
+                    }
+                } else {
+                    errorMessage = nil
+                    print("Found \(htmlRecords.count) HTML files")
+                }
             }
         }
     }
@@ -57,5 +54,4 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
 }

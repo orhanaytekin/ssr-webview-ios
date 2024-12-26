@@ -6,27 +6,23 @@
 //
 
 import SwiftUI
-import SwiftData
 
 @main
 struct ssr_webview_iosApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
+    init() {
+        // Print bundle information on startup
+        print("App Bundle Path: \(Bundle.main.bundlePath)")
+        if let resources = Bundle.main.urls(forResourcesWithExtension: "html", subdirectory: nil) {
+            print("Found HTML files:")
+            resources.forEach { print("  - \($0.lastPathComponent)") }
+        } else {
+            print("⚠️ No HTML files found in bundle")
         }
-    }()
-
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(sharedModelContainer)
     }
 }

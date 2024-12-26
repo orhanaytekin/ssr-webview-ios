@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Math Solution</title>
+    <!-- KaTeX for better LaTeX rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --safe-area-inset-top: env(safe-area-inset-top);
+            --safe-area-inset-bottom: env(safe-area-inset-bottom);
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            max-width: 100%;
+            margin: 0;
+            padding: calc(16px + var(--safe-area-inset-top)) 16px calc(16px + var(--safe-area-inset-bottom));
+            line-height: 1.6;
+            background-color: #fff;
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+        }
+        .problem {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .problem-image {
+            width: 100%;
+            max-width: 400px;
+            margin: 10px auto;
+            display: block;
+            border-radius: 8px;
+        }
+        .solution-step {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 3px solid #007bff;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .katex-display {
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 8px 0;
+            margin: 0.5em 0;
+            -webkit-overflow-scrolling: touch;
+        }
+        .katex {
+            font-size: 1.1em;
+            text-rendering: auto;
+        }
+        .hint {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+        .step {
+            margin: 8px 0;
+            color: #2c3e50;
+        }
+        .expression {
+            margin: 12px 0;
+            overflow-x: auto;
+            padding: 8px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+        .prev-expression {
+            color: #666;
+            font-size: 0.9em;
+            margin: 8px 0;
+            padding: 8px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            border-left: 2px solid #dee2e6;
+        }
+        h3 {
+            color: #2c3e50;
+            margin-top: 1.5em;
+            margin-bottom: 0.75em;
+            font-size: 1.5em;
+        }
+        h4 {
+            color: #2c3e50;
+            margin-top: 1.2em;
+            margin-bottom: 0.6em;
+            font-size: 1.3em;
+        }
+        h5 {
+            color: #2c3e50;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+            font-size: 1.1em;
+        }
+        .solution-section {
+            margin-bottom: 30px;
+        }
+        .template-section {
+            margin-bottom: 25px;
+        }
+        .problem-type {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+<body>
+    <div class="problem">
+        <div class="problem-type">geometry</div>
+        <h3>Problem:</h3>
+        <img class="problem-image" src="https://mathhero-staging.s3.amazonaws.com/temp/2024/12/26/324fff5a-0b0e-4947-b70f-cb45ed16e787" alt="Math problem">
+        <div class="latex-content">$$\text{Area}=\sqrt{300},\angle C=60^\circ,BC=x+3,CA=x$$</div>
+    </div>
+
+    <div class="solution">
+        <h3>Solution:</h3>
+            <div class="solution-section">
+                <h4>Calculate the length of AB using the area formula for triangles</h4>
+                    <div class="template-section">
+                        <h5>Using the area formula for triangles with sine</h5>
+                            <div class="solution-step">
+                                    <div class="hint">Use the formula for the area of a triangle with sine.</div>
+                                <div class="step">\text{Area}&#x3D;\frac{1}{2}ab\sin C</div>
+                                    <div class="expression">[\text{Area}&#x3D;\frac{1}{2}ab\sin C]</div>
+                            </div>
+                            <div class="solution-step">
+                                    <div class="hint">Substitute the given values into the formula.</div>
+                                <div class="step">\sqrt{300}&#x3D;\frac{1}{2}(x+3)x\sin 60^\circ</div>
+                                    <div class="prev-expression">[\text{Area}&#x3D;\frac{1}{2}ab\sin C]</div>
+                                    <div class="expression">[\sqrt{300}&#x3D;\frac{1}{2}(x+3)x\sin 60^\circ]</div>
+                            </div>
+                            <div class="solution-step">
+                                    <div class="hint">Simplify using \sin 60^\circ&#x3D;\frac{\sqrt{3}}{2}.</div>
+                                <div class="step">\sqrt{300}&#x3D;\frac{1}{2}(x+3)x\cdot\frac{\sqrt{3}}{2}</div>
+                                    <div class="prev-expression">[\sqrt{300}&#x3D;\frac{1}{2}(x+3)x\sin 60^\circ]</div>
+                                    <div class="expression">[\sqrt{300}&#x3D;\frac{1}{2}(x+3)x\cdot\frac{\sqrt{3}}{2}]</div>
+                            </div>
+                            <div class="solution-step">
+                                    <div class="hint">Multiply and simplify the equation.</div>
+                                <div class="step">\sqrt{300}&#x3D;\frac{\sqrt{3}}{4}(x^2+3x)</div>
+                                    <div class="prev-expression">[\sqrt{300}&#x3D;\frac{1}{2}(x+3)x\cdot\frac{\sqrt{3}}{2}]</div>
+                                    <div class="expression">[\sqrt{300}&#x3D;\frac{\sqrt{3}}{4}(x^2+3x)]</div>
+                            </div>
+                            <div class="solution-step">
+                                    <div class="hint">Clear the square root and simplify.</div>
+                                <div class="step">300&#x3D;\frac{3}{4}(x^2+3x)</div>
+                                    <div class="prev-expression">[\sqrt{300}&#x3D;\frac{\sqrt{3}}{4}(x^2+3x)]</div>
+                                    <div class="expression">[300&#x3D;\frac{3}{4}(x^2+3x)]</div>
+                            </div>
+                            <div class="solution-step">
+                                    <div class="hint">Multiply both sides by 4/3 to solve for x.</div>
+                                <div class="step">400&#x3D;x^2+3x</div>
+                                    <div class="prev-expression">[300&#x3D;\frac{3}{4}(x^2+3x)]</div>
+                                    <div class="expression">[400&#x3D;x^2+3x]</div>
+                            </div>
+                            <div class="solution-step">
+                                    <div class="hint">Rearrange into a quadratic equation.</div>
+                                <div class="step">x^2+3x-400&#x3D;0</div>
+                                    <div class="prev-expression">[400&#x3D;x^2+3x]</div>
+                                    <div class="expression">[x^2+3x-400&#x3D;0]</div>
+                            </div>
+                            <div class="solution-step">
+                                    <div class="hint">Solve the quadratic equation using the quadratic formula.</div>
+                                <div class="step">x&#x3D;\frac{-3\pm\sqrt{3^2-4\cdot1\cdot(-400)}}{2\cdot1}</div>
+                                    <div class="prev-expression">[x^2+3x-400&#x3D;0]</div>
+                                    <div class="expression">[x&#x3D;\frac{-3\pm\sqrt{3^2-4\cdot1\cdot(-400)}}{2\cdot1}]</div>
+                            </div>
+                            <div class="solution-step">
+                                    <div class="hint">Calculate the discriminant and solve for x.</div>
+                                <div class="step">x&#x3D;\frac{-3\pm\sqrt{1609}}{2}</div>
+                                    <div class="prev-expression">[x&#x3D;\frac{-3\pm\sqrt{3^2-4\cdot1\cdot(-400)}}{2\cdot1}]</div>
+                                    <div class="expression">[x&#x3D;\frac{-3\pm\sqrt{1609}}{2}]</div>
+                            </div>
+                            <div class="solution-step">
+                                    <div class="hint">Approximate the positive solution for x.</div>
+                                <div class="step">x\approx15</div>
+                                    <div class="prev-expression">[x&#x3D;\frac{-3\pm\sqrt{1609}}{2}]</div>
+                                    <div class="expression">[x\approx15]</div>
+                            </div>
+                            <div class="solution-step">
+                                    <div class="hint">Calculate AB using x.</div>
+                                <div class="step">AB&#x3D;x+3&#x3D;15+3</div>
+                                    <div class="prev-expression">[x\approx15]</div>
+                                    <div class="expression">[AB&#x3D;18]</div>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+                {left: "\[", right: "\]", display: true},
+                {left: "\(", right: "\)", display: false}
+            ],
+            throwOnError: false,
+            trust: true,
+            strict: false
+        });
+    });
+</script>
+</html>

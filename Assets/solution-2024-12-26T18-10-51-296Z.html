@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Solution</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #fff;
+        }
+        .problem {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .solution-step {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-left: 3px solid #007bff;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .hint {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+        .step {
+            margin: 8px 0;
+            color: #2c3e50;
+        }
+        .expression {
+            margin: 12px 0;
+            overflow-x: auto;
+            padding: 8px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+        .prev-expression {
+            color: #666;
+            font-size: 0.9em;
+            margin: 8px 0;
+            padding: 8px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            border-left: 2px solid #dee2e6;
+        }
+        h3 {
+            color: #2c3e50;
+            margin-top: 1.5em;
+            margin-bottom: 0.75em;
+            font-size: 1.5em;
+        }
+        h4 {
+            color: #2c3e50;
+            margin-top: 1.2em;
+            margin-bottom: 0.6em;
+            font-size: 1.3em;
+        }
+        h5 {
+            color: #2c3e50;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+            font-size: 1.1em;
+        }
+        .solution-section {
+            margin-bottom: 30px;
+        }
+        .template-section {
+            margin-bottom: 25px;
+        }
+        .problem-type {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+<body>
+    <div class="problem">
+        <div class="problem-type">geometry</div>
+        <h3>Problem:</h3>
+        $$\text{Area}=\sqrt{300},\angle C=60^\circ,BC=x+3,CA=x$$
+    </div>
+
+    <div class="solution">
+        <h3>Solution:</h3>
+            <div class="solution-section">
+                <h4>Using the formula for the area of a triangle with two sides and included angle</h4>
+                    <div class="template-section">
+                        <h5>Using the formula for the area of a triangle with two sides and included angle</h5>
+                            <div class="solution-step">
+                                    <div class="hint">Use the formula for the area of a triangle with two sides and an included angle.</div>
+                                <div class="step">The area of a triangle is given by \( \frac{1}{2}ab\sin C \).</div>
+                                    <div class="expression">[\frac{1}{2}(x+3)x\sin 60^\circ&#x3D;\sqrt{300}]</div>
+                            </div>
+                            <div class="solution-step">
+                                    <div class="hint">Substitute \( \sin 60^\circ &#x3D; \frac{\sqrt{3}}{2} \) into the equation.</div>
+                                <div class="step">Substitute \( \sin 60^\circ &#x3D; \frac{\sqrt{3}}{2} \) into the area formula.</div>
+                                    <div class="prev-expression">[\frac{1}{2}(x+3)x\sin 60^\circ&#x3D;\sqrt{300}]</div>
+                                    <div class="expression">[\frac{1}{2}(x+3)x\frac{\sqrt{3}}{2}&#x3D;\sqrt{300}]</div>
+                            </div>
+                            <div class="solution-step">
+                                    <div class="hint">Simplify the equation.</div>
+                                <div class="step">Simplify to get \( \frac{\sqrt{3}}{4}(x^2+3x)&#x3D;\sqrt{300} \).</div>
+                                    <div class="prev-expression">[\frac{1}{2}(x+3)x\frac{\sqrt{3}}{2}&#x3D;\sqrt{300}]</div>
+                                    <div class="expression">[\frac{\sqrt{3}}{4}(x^2+3x)&#x3D;\sqrt{300}]</div>
+                            </div>
+                            <div class="solution-step">
+                                    <div class="hint">Square both sides to eliminate the square root.</div>
+                                <div class="step">Square both sides: \( \left(\frac{\sqrt{3}}{4}(x^2+3x)\right)^2&#x3D;300 \).</div>
+                                    <div class="prev-expression">[\frac{\sqrt{3}}{4}(x^2+3x)&#x3D;\sqrt{300}]</div>
+                                    <div class="expression">[\left(\frac{\sqrt{3}}{4}(x^2+3x)\right)^2&#x3D;300]</div>
+                            </div>
+                            <div class="solution-step">
+                                    <div class="hint">Solve for \( x \).</div>
+                                <div class="step">Solve the equation to find \( x&#x3D;6 \).</div>
+                                    <div class="prev-expression">[\left(\frac{\sqrt{3}}{4}(x^2+3x)\right)^2&#x3D;300]</div>
+                                    <div class="expression">[x&#x3D;6]</div>
+                            </div>
+                            <div class="solution-step">
+                                    <div class="hint">Calculate the length of \( AB \).</div>
+                                <div class="step">Substitute \( x&#x3D;6 \) into \( AB&#x3D;x+3 \).</div>
+                                    <div class="prev-expression">[x&#x3D;6]</div>
+                                    <div class="expression">[AB&#x3D;15]</div>
+                            </div>
+                    </div>
+            </div>
+    </div>
+</body>
+</html>

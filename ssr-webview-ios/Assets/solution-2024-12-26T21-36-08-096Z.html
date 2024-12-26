@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Math Solution</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #FF4B55;
+            --step-bg: #FFF5F6;
+            --text-color: #2C3E50;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 16px;
+            line-height: 1.6;
+            background-color: #fff;
+            color: var(--text-color);
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+        }
+        .problem {
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .problem-image {
+            width: 100%;
+            max-width: 400px;
+            margin: 16px auto;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+        }
+        .problem-type {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+        .step-counter {
+            background: var(--primary-color);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        .solution-step {
+            background: var(--step-bg);
+            margin-bottom: 16px;
+            padding: 16px;
+            border-radius: 16px;
+            border: none;
+        }
+        .katex-display {
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 8px 0;
+            margin: 0.5em 0;
+            -webkit-overflow-scrolling: touch;
+            font-size: 1.1em;
+        }
+        .katex {
+            font-size: 1.1em;
+            text-rendering: auto;
+        }
+        .hint {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 8px;
+            padding: 8px 12px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 8px;
+        }
+        .step {
+            font-size: 16px;
+            margin: 12px 0;
+            color: var(--text-color);
+        }
+        h3 {
+            color: var(--text-color);
+            font-size: 20px;
+            margin: 0 0 16px 0;
+        }
+        h4 {
+            color: var(--text-color);
+            font-size: 18px;
+            margin: 24px 0 16px 0;
+        }
+        .latex-content {
+            background: white;
+            padding: 16px;
+            border-radius: 12px;
+            margin: 12px 0;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+        }
+        .method-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            overflow-x: auto;
+            padding: 4px;
+            -webkit-overflow-scrolling: touch;
+        }
+        .method-tab {
+            background: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            white-space: nowrap;
+            color: var(--text-color);
+            border: 1px solid #eee;
+        }
+        .method-tab.active {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="problem">
+        <div class="problem-type">arithmetic</div>
+        <h3>Problem</h3>
+        <img class="problem-image" src="https://mathhero-staging.s3.amazonaws.com/temp/2024/12/27/74d066ce-70b9-49da-bff4-458f11a6782d" alt="Math problem">
+        <div>$$8\div2(2+2)$$</div>
+    </div>
+
+    <div class="solution">
+        <div class="method-tabs">
+            <div class="method-tab active">Evaluating an arithmetic expression</div>
+        </div>
+
+        <div class="solution-section">
+                    <div class="solution-step">
+                        <div class="step-counter">Step 1</div>
+                            <div class="hint">💡 Evaluate the expression inside the parentheses</div>
+                        <div class="step">
+                                Calculate $2+2$ to simplify the expression inside the parentheses.
+                        </div>
+                            <div class="math">\[8\div2(2+2)\]</div>
+                            <div class="math">\[8\div2(4)\]</div>
+                    </div>
+                    <div class="solution-step">
+                        <div class="step-counter">Step 2</div>
+                            <div class="hint">💡 Perform division and multiplication from left to right</div>
+                        <div class="step">
+                                First, divide $8$ by $2$ to get $4$.
+                        </div>
+                            <div class="math">\[8\div2(4)\]</div>
+                            <div class="math">\[4(4)\]</div>
+                    </div>
+                    <div class="solution-step">
+                        <div class="step-counter">Step 3</div>
+                            <div class="hint">💡 Multiply the result by the number outside the parentheses</div>
+                        <div class="step">
+                                Multiply $4$ by $4$ to get the final result.
+                        </div>
+                            <div class="math">\[4(4)\]</div>
+                            <div class="math">\[16\]</div>
+                    </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false},
+                    {left: "\\[", right: "\\]", display: true},
+                    {left: "\\(", right: "\\)", display: false}
+                ],
+                throwOnError: false,
+                trust: true,
+                strict: false,
+                output: 'html',
+                macros: {
+                    "\\f": "\\frac"
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

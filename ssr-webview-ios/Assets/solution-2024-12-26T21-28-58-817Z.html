@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Math Solution</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #FF4B55;
+            --step-bg: #FFF5F6;
+            --text-color: #2C3E50;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 16px;
+            line-height: 1.6;
+            background-color: #fff;
+            color: var(--text-color);
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+        }
+        .problem {
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .problem-image {
+            width: 100%;
+            max-width: 400px;
+            margin: 16px auto;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+        }
+        .problem-type {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+        .step-counter {
+            background: var(--primary-color);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        .solution-step {
+            background: var(--step-bg);
+            margin-bottom: 16px;
+            padding: 16px;
+            border-radius: 16px;
+            border: none;
+        }
+        .katex-display {
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 8px 0;
+            margin: 0.5em 0;
+            -webkit-overflow-scrolling: touch;
+            font-size: 1.1em;
+        }
+        .katex {
+            font-size: 1.1em;
+            text-rendering: auto;
+        }
+        .hint {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 8px;
+            padding: 8px 12px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 8px;
+        }
+        .step {
+            font-size: 16px;
+            margin: 12px 0;
+            color: var(--text-color);
+        }
+        h3 {
+            color: var(--text-color);
+            font-size: 20px;
+            margin: 0 0 16px 0;
+        }
+        h4 {
+            color: var(--text-color);
+            font-size: 18px;
+            margin: 24px 0 16px 0;
+        }
+        .latex-content {
+            background: white;
+            padding: 16px;
+            border-radius: 12px;
+            margin: 12px 0;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+        }
+        .method-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            overflow-x: auto;
+            padding: 4px;
+            -webkit-overflow-scrolling: touch;
+        }
+        .method-tab {
+            background: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            white-space: nowrap;
+            color: var(--text-color);
+            border: 1px solid #eee;
+        }
+        .method-tab.active {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="problem">
+        <div class="problem-type">complex analysis</div>
+        <h3>Problem</h3>
+        <img class="problem-image" src="https://mathhero-staging.s3.amazonaws.com/temp/2024/12/26/8ff70d95-47e7-4899-b97a-5548d640dd8c" alt="Math problem">
+        <div>$$\lim_{R\to\infty}\sum_{n\in\mathbb{N}_0}\int_{\partial C_R}\frac{(-1)^nz^n}{(z^4+0.1\sigma)\int_0^\infty t^ne^{-t}dt}dz$$</div>
+    </div>
+
+    <div class="solution">
+        <div class="method-tabs">
+            <div class="method-tab active">Evaluating a complex contour integral</div>
+        </div>
+
+        <div class="solution-section">
+                    <div class="solution-step">
+                        <div class="step-counter">Step 1</div>
+                            <div class="hint">💡 Identify the contour and function</div>
+                        <div class="step">
+                                The contour $C_R$ is defined for $z$ in the upper half-plane with $0<|z|<R$. The function is $\frac{(-1)^nz^n}{(z^4+0.1\sigma)\int_0^\infty t^ne^{-t}dt}$.
+                        </div>
+                            <div class="math">\[\frac{(-1)^nz^n}{(z^4+0.1\sigma)\int_0^\infty t^ne^{-t}dt}\]</div>
+                    </div>
+                    <div class="solution-step">
+                        <div class="step-counter">Step 2</div>
+                            <div class="hint">💡 Evaluate the inner integral</div>
+                        <div class="step">
+                                The inner integral $\int_0^\infty t^ne^{-t}dt$ is the Gamma function $\Gamma(n+1)=n!$.
+                        </div>
+                            <div class="math">\[\int_0^\infty t^ne^{-t}dt\]</div>
+                            <div class="math">\[n!\]</div>
+                    </div>
+                    <div class="solution-step">
+                        <div class="step-counter">Step 3</div>
+                            <div class="hint">💡 Simplify the function</div>
+                        <div class="step">
+                                The function becomes $\frac{(-1)^nz^n}{(z^4+0.1\sigma)n!}$.
+                        </div>
+                            <div class="math">\[\frac{(-1)^nz^n}{(z^4+0.1\sigma)\int_0^\infty t^ne^{-t}dt}\]</div>
+                            <div class="math">\[\frac{(-1)^nz^n}{(z^4+0.1\sigma)n!}\]</div>
+                    </div>
+                    <div class="solution-step">
+                        <div class="step-counter">Step 4</div>
+                            <div class="hint">💡 Apply the residue theorem</div>
+                        <div class="step">
+                                For large $R$, the integral over $\partial C_R$ vanishes if there are no poles inside $C_R$.
+                        </div>
+                            <div class="math">\[\int_{\partial C_R}\frac{(-1)^nz^n}{(z^4+0.1\sigma)n!}dz\]</div>
+                            <div class="math">\[0\]</div>
+                    </div>
+                    <div class="solution-step">
+                        <div class="step-counter">Step 5</div>
+                            <div class="hint">💡 Evaluate the limit</div>
+                        <div class="step">
+                                As $R \to \infty$, the limit of the sum of integrals is $0$ since the integrals vanish.
+                        </div>
+                            <div class="math">\[\lim_{R\to\infty}\sum_{n\in\mathbb{N}_0}\int_{\partial C_R}\frac{(-1)^nz^n}{(z^4+0.1\sigma)n!}dz\]</div>
+                            <div class="math">\[0\]</div>
+                    </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false},
+                    {left: "\\[", right: "\\]", display: true},
+                    {left: "\\(", right: "\\)", display: false}
+                ],
+                throwOnError: false,
+                trust: true,
+                strict: false,
+                output: 'html',
+                macros: {
+                    "\\f": "\\frac"
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
