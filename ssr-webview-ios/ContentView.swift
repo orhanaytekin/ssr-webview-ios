@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var htmlRecords: [HTMLRecord] = []
     @State private var errorMessage: String?
+    @State private var showingRemoteSolution = false
     
     var body: some View {
         NavigationView {
@@ -20,9 +21,19 @@ struct ContentView: View {
                         .padding()
                 }
                 
-                List(htmlRecords) { record in
-                    NavigationLink(destination: WebViewScreen(htmlContent: record.content)) {
-                        Text(record.title)
+                List {
+                    Section(header: Text("Local HTML Files")) {
+                        ForEach(htmlRecords) { record in
+                            NavigationLink(destination: WebViewScreen(htmlContent: record.content)) {
+                                Text(record.title)
+                            }
+                        }
+                    }
+                    
+                    Section(header: Text("Remote Solution")) {
+                        NavigationLink(destination: RemoteSolutionView(path: "temp/2024/12/27/2b6dd648-1e4e-43a3-9a27-c18c3d4a86fb")) {
+                            Text("View Remote Solution")
+                        }
                     }
                 }
             }
